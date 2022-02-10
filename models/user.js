@@ -17,6 +17,10 @@ const userSchema = new Schema({
       trim: true,
       minLength: 3,
       required: true
+    },
+    firstName: {
+      type: String,
+      
     }
 }, {
     timestamps: true,
