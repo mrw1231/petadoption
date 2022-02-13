@@ -5,6 +5,7 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 import { getUser} from "../../utilities/users-service"
 import { useState } from "react";
+import * as ordersAPI from '../../utilities/orders-api';
 import NavBar from "../../components/NavBar/NavBar";
 import HomePage from "../HomePage/HomePage";
 import PetPage from "../PetPage/PetPage";
@@ -13,14 +14,26 @@ import Cart from "../Cart/Cart";
 
 function App() {
   const [user, setUser] = useState(getUser());
+  const [cart, setCart] = useState(null);
+
+  async function handleAddToOrder(itemId) {
+    const cart = await ordersAPI.addItemToCart(itemId);
+    setCart(cart);
+  }
+
   return (
     <main className="App">
       <NavBar user={user} setUser={setUser} />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/pets" element={<PetPage user={user} setUser={setUser} />} />
+          <Route path="/pets" element={<PetPage
+            handleAddToOrder={handleAddToOrder} 
+          />} />
           <Route path="/loginsignup" element={<LoginSignUpPage user={user} setUser={setUser} />} />
-          <Route path="/cart" element={<Cart user={user} setUser={setUser} />} />
+          <Route path="/cart" element={<Cart 
+            order={cart}
+            setCart={setCart}
+          />} />
         </Routes>
     </main>
   );

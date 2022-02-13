@@ -3,17 +3,18 @@ import './CategoryList.css';
 
 export default function CategoryList({ categories, activeCat, setActiveCat }) {
   const cats = categories.map(cat =>
-    <li
+    <button
       key={cat}
       className={cat === activeCat ? 'active' : ''}
       onClick={() => setActiveCat(cat)}
     >
       {cat}
-    </li>
+    </button>
   );
   return (
-    <ul className="CategoryList">
+    <div className="CategoryList">
       {cats}
-    </ul>
+      &nbsp;
+    </div>
   );
 }

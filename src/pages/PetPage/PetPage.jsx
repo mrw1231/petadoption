@@ -4,7 +4,7 @@ import * as itemsAPI from '../../utilities/items-api';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import PetList from "../../components/PetList/PetList";
 
-function PetPage({ user, setUser }) {
+function PetPage({ handleAddToOrder }) {
     const [activeCat, setActiveCat] = useState('');
     const categoriesRef = useRef([]);
     const [pets, setPets] = useState([]);
@@ -31,6 +31,7 @@ function PetPage({ user, setUser }) {
             />
             <PetList
                 pets={pets.filter(pet => pet.category.name === activeCat)}
+                handleAddToOrder={handleAddToOrder}
             />
         </div>
     )
