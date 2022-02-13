@@ -15,7 +15,7 @@ const Item = require('./models/item');
 
   await Item.deleteMany({});
   const items = await Item.create([
-    {name: 'Wagner', category: categories[0], price: 50},
+    {name: 'Wagner', category: categories[0], price: 50, image: 'https://i.imgur.com/nIaRaqU.jpg'},
     {name: 'Tabby', category: categories[1], price: 10},
     {name: 'Gerbil', category: categories[2], price: 3.95},
   ]);

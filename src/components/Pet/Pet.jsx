@@ -5,6 +5,7 @@ export default function Pet({ pet }) {
       <div>
         <div>{pet.name}</div>
         <div>${pet.price.toFixed(2)}</div>
+        <img src={pet.image}></img>
       </div>
     );
   }
