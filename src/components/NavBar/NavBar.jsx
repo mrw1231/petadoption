@@ -17,7 +17,11 @@ function NavBar({ user, setUser }) {
             &nbsp; | &nbsp;
             {
                 user ?
+                <>
+                <Link to="/cart">Cart</Link>
+                &nbsp; | &nbsp;
                 <Link to="" onClick={handleLogOut}>Log Out</Link>
+                </>
                 :
                 <Link to="/loginsignup">Login / Sign Up</Link>
             }
