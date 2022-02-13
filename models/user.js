@@ -24,6 +24,7 @@ const userSchema = new Schema({
   state: {type: String, required: true},
   zip: {type: String, required: true},
   phoneNumber: {type: String, required: true},
+  admin: {type: Boolean, default: false},
 }, {
     timestamps: true,
     toJSON: {

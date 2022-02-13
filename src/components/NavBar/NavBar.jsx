@@ -12,19 +12,19 @@ function NavBar({ user, setUser }) {
     }
     return (
         <nav className="NavBar">
-            <Link to="/">Home</Link>
+            <Link to="/" className="Link">Home</Link>
             &nbsp; | &nbsp;
-            <Link to="/pets">Pets</Link>
+            <Link to="/pets" className="Link">Pets</Link>
             &nbsp; | &nbsp;
             {
                 user ?
                 <>
-                <Link to="/cart">Cart</Link>
+                <Link to="/cart" className="Link">Cart</Link>
                 &nbsp; | &nbsp;
-                <Link to="" onClick={handleLogOut}>Log Out</Link>
+                <Link to="" className="Link" onClick={handleLogOut}>Log Out</Link>
                 </>
                 :
-                <Link to="/loginsignup">Login / Sign Up</Link>
+                <Link to="/loginsignup" className="Link">Login / Sign Up</Link>
             }
         </nav>
     )

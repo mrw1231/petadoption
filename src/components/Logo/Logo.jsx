@@ -4,7 +4,8 @@ import './Logo.css';
 export default function Logo() {
   return (
     <div className="Logo">
-      <div>Furry Friend Finder</div>
+      <h1>Furry Friend Finder</h1>
+      
     </div>
   );
 }

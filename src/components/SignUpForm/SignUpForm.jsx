@@ -1,4 +1,5 @@
 import React from "react";
+import "./SignUpForm.css";
 import { Component } from 'react';
 import { signUp } from "../../utilities/users-service";
 
@@ -14,6 +15,7 @@ class SignUpForm extends Component {
         state: '',
         zip: '',
         phoneNumber: '',
+        admin: 'false',
         error: ''
     };
     // The object passed to setState is merged with the current state object
@@ -44,7 +46,7 @@ class SignUpForm extends Component {
         const disable = this.state.password !== this.state.confirm;
         return (
           <div>
-            <div className="form-container">
+            <div className="SignUpForm">
               <form autoComplete="off" onSubmit={this.handleSubmit}>
                 <label>Email</label>
                 <input type="email" name="email" value={this.state.email} onChange={this.handleChange} required />
