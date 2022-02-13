@@ -1,6 +1,6 @@
 const Schema = require('mongoose').Schema;
 
-const petSchema = new Schema({
+const itemSchema = new Schema({
   name: {type: String, required: true},
   category: {type: Schema.Types.ObjectId, ref:'Category'},
   price: {type: Number, required: true, default: 0}
@@ -8,4 +8,4 @@ const petSchema = new Schema({
   timestamps: true
 });
 
-module.exports = petSchema;
+module.exports = itemSchema;

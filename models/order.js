@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const petSchema = require('./petSchema');
+const itemSchema = require('./itemSchema');
 
 const lineItemSchema = new Schema({
   qty: {type: Number, default: 1},
-  pet: petSchema
+  item: itemSchema
 }, {
   timestamps: true,
   toJSON: { virtuals: true }
@@ -12,7 +12,7 @@ const lineItemSchema = new Schema({
 
 lineItemSchema.virtual('extPrice').get(function() {
   // 'this' refers to the lineItem subdocument
-  return this.qty * this.pet.price;
+  return this.qty * this.item.price;
 });
 
 const orderSchema = new Schema({
@@ -26,11 +26,11 @@ const orderSchema = new Schema({
 
 orderSchema.virtual('orderTotal').get(function() {
   // 'this' refers to the order document
-  return this.lineItems.reduce((total, pet) => total + pet.extPrice, 0);
+  return this.lineItems.reduce((total, item) => total + item.extPrice, 0);
 });
 
 orderSchema.virtual('totalQty').get(function() {
-  return this.lineItems.reduce((total, pet) => total + pet.qty, 0);
+  return this.lineItems.reduce((total, item) => total + item.qty, 0);
 });
 
 orderSchema.virtual('orderId').get(function() {
@@ -51,24 +51,24 @@ orderSchema.statics.getCart = function(userId) {
   );
 };
 
-orderSchema.methods.addItemToCart = async function(petId) {
+orderSchema.methods.addItemToCart = async function(itemId) {
   // 'this' refers to the 'cart' (unpaid order)
   const cart = this;
-  const lineItem = cart.lineItems.find(lineItem => lineItem.pet._id.equals(petId));
+  const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
   if (lineItem) {
     // The item is already in the cart, increase the qty!
     lineItem.qty += 1;
   } else {
     // Not in cart, lets add the item!
-    const pet = await mongoose.model('Pet').findById(petId);
-    cart.lineItems.push({ pet });
+    const item = await mongoose.model('Item').findById(itemId);
+    cart.lineItems.push({ item });
   }
   return cart.save();
 };
 
-orderSchema.methods.setItemQty = function(petId, newQty) {
+orderSchema.methods.setItemQty = function(itemId, newQty) {
   const cart = this;
-  const lineItem = cart.lineItems.find(lineItem => lineItem.pet._id.equals(petId));
+  const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
   if (lineItem && newQty <= 0) {
     lineItem.remove();
   } else if (lineItem) {
