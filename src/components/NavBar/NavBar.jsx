@@ -1,8 +1,9 @@
 import React from "react";
+import "./NavBar.css";
 import {Link} from "react-router-dom";
 import * as userService from "..//../utilities/users-service";
 
-function NavBar({ user, setUser, order }) {
+function NavBar({ user, setUser }) {
     function handleLogOut() {
         // Delegate to the users-service
         userService.logOut();
@@ -10,7 +11,7 @@ function NavBar({ user, setUser, order }) {
         setUser(null);
     }
     return (
-        <nav>
+        <nav className="NavBar">
             <Link to="/">Home</Link>
             &nbsp; | &nbsp;
             <Link to="/pets">Pets</Link>

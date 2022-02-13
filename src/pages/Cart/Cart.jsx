@@ -23,6 +23,7 @@ export default function Cart({ order, setCart }) {
           setCart(cart);
         }
         getCart();
+    // eslint-disable-next-line
     }, []);
 
     if (!order) return null;
@@ -39,11 +40,11 @@ export default function Cart({ order, setCart }) {
     return (
         <div className="OrderDetail">
             <h1>Reservations</h1>
-            <div className="line-item-container flex-ctr-ctr flex-col scroll-y">
+            <div>
                 {lineItems.length ?
                     <>
                         {lineItems}
-                        <section className="total">
+                        <section>
                             <span>Total Items {order.totalQty}</span>
                             <br></br>
                             <span className="right">Amount Owed ${order.orderTotal.toFixed(2)}</span>
