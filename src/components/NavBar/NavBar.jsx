@@ -13,6 +13,12 @@ function NavBar({ user, setUser }) {
         <nav>
             <Link to="/">Home</Link>
             &nbsp; | &nbsp;
+            <Link to="/pets">Pets</Link>
+            &nbsp; | &nbsp;
+            <Link to="/signup">Sign Up</Link>
+            &nbsp; | &nbsp;
+            <Link to="/login">Login</Link>
+            &nbsp; | &nbsp;
         </nav>
     )
   }
