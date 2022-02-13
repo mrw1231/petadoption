@@ -8,6 +8,10 @@ export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
       <div>{lineItem.item.name}</div>
       <img src={lineItem.item.image} alt="pet"></img>
       <div>${lineItem.extPrice.toFixed(2)}</div>
+      <button
+        onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)}
+      >Remove</button>
+      <br></br>
       <br></br>
     </div>
   );
