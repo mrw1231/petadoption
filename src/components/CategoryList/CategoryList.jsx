@@ -3,12 +3,16 @@ import './CategoryList.css';
 
 export default function CategoryList({ categories, activeCat, setActiveCat }) {
   const cats = categories.map(cat =>
-    <li>
+    <li
       key={cat}
+      className={cat === activeCat ? 'active' : ''}
+      onClick={() => setActiveCat(cat)}
+    >
+      {cat}
     </li>
   );
   return (
-    <ul>
+    <ul className="CategoryList">
       {cats}
     </ul>
   );

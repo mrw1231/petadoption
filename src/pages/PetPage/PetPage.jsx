@@ -2,10 +2,12 @@ import React from "react";
 import { useState, useEffect, useRef } from 'react';
 import * as itemsAPI from '../../utilities/items-api';
 import CategoryList from '../../components/CategoryList/CategoryList';
+import PetList from "../../components/PetList/PetList";
 
 function PetPage({ user, setUser }) {
     const [activeCat, setActiveCat] = useState('');
     const categoriesRef = useRef([]);
+    const [pets, setPets] = useState([]);
     useEffect(function() {
         async function getItems() {
           const items = await itemsAPI.getAll();
@@ -14,6 +16,7 @@ function PetPage({ user, setUser }) {
             const cat = item.category.name;
             return acc.includes(cat) ? acc : [...acc, cat]
           }, []);
+          setPets(items);
           setActiveCat(items[0].category.name);
         }
         getItems();
@@ -25,6 +28,9 @@ function PetPage({ user, setUser }) {
                 categories={categoriesRef.current}
                 activeCat={activeCat}
                 setActiveCat={setActiveCat}
+            />
+            <PetList
+                pets={pets.filter(pet => pet.category.name === activeCat)}
             />
         </div>
     )
