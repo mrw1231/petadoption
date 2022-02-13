@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import * as userService from "..//../utilities/users-service";
 
-function NavBar({ user, setUser }) {
+function NavBar({ user, setUser, order }) {
     function handleLogOut() {
         // Delegate to the users-service
         userService.logOut();

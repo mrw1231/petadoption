@@ -4,14 +4,13 @@ import * as itemsAPI from '../../utilities/items-api';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import PetList from "../../components/PetList/PetList";
 
-function PetPage({ handleAddToOrder }) {
+function PetPage({ user, handleAddToOrder }) {
     const [activeCat, setActiveCat] = useState('');
     const categoriesRef = useRef([]);
     const [pets, setPets] = useState([]);
     useEffect(function() {
         async function getItems() {
           const items = await itemsAPI.getAll();
-          console.log(items);
           categoriesRef.current = items.reduce((acc, item) => {
             const cat = item.category.name;
             return acc.includes(cat) ? acc : [...acc, cat]
@@ -32,6 +31,7 @@ function PetPage({ handleAddToOrder }) {
             <PetList
                 pets={pets.filter(pet => pet.category.name === activeCat)}
                 handleAddToOrder={handleAddToOrder}
+                user={user}
             />
         </div>
     )

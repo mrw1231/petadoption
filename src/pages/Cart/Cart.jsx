@@ -1,9 +1,9 @@
 import React from "react";
 import * as ordersAPI from '../../utilities/orders-api';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import LineItem from "../../components/LineItem/LineItem";
 
-// Used to display the details of any order, including the cart (unpaid order)
 export default function Cart({ order, setCart }) {
     const navigate = useNavigate();
 
@@ -14,8 +14,16 @@ export default function Cart({ order, setCart }) {
 
     async function handleCheckout() {
         await ordersAPI.checkout();
-        navigate('/orders');
+        navigate('/');
     }
+
+    useEffect(function() {
+        async function getCart() {
+          const cart = await ordersAPI.getCart();
+          setCart(cart);
+        }
+        getCart();
+    }, []);
 
     if (!order) return null;
     
@@ -30,34 +38,25 @@ export default function Cart({ order, setCart }) {
     
     return (
         <div className="OrderDetail">
-            <div className="section-heading">
-                {order.isPaid ?
-                    <span>ORDER <span className="smaller">{order.orderId}</span></span>
-                    :
-                    <span>NEW ORDER</span>
-                }
-                <span>{new Date(order.updatedAt).toLocaleDateString()}</span>
-            </div>
+            <h1>Reservations</h1>
             <div className="line-item-container flex-ctr-ctr flex-col scroll-y">
                 {lineItems.length ?
                     <>
                         {lineItems}
                         <section className="total">
-                            {order.isPaid ?
-                                 <span className="right">TOTAL&nbsp;&nbsp;</span>
-                                :
-                                <button
-                                    className="btn-sm"
-                                    onClick={handleCheckout}
-                                    disabled={!lineItems.length}
-                                >CHECKOUT</button>
-                            }
-                            <span>{order.totalQty}</span>
-                            <span className="right">${order.orderTotal.toFixed(2)}</span>
+                            <span>Total Items {order.totalQty}</span>
+                            <br></br>
+                            <span className="right">Amount Owed ${order.orderTotal.toFixed(2)}</span>
+                            <br></br>
+                            <button
+                                className="btn-sm"
+                                onClick={handleCheckout}
+                                disabled={!lineItems.length}
+                            >CHECKOUT</button>
                         </section>
                     </>
                     :
-                    <div className="hungry">Hungry?</div>
+                    <Link to="/pets">Find Your New Friend Here!</Link>
                 }
             </div>
         </div>

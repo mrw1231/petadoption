@@ -23,11 +23,12 @@ function App() {
 
   return (
     <main className="App">
-      <NavBar user={user} setUser={setUser} />
+      <NavBar user={user} setUser={setUser} order={cart} />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/pets" element={<PetPage
-            handleAddToOrder={handleAddToOrder} 
+            handleAddToOrder={handleAddToOrder}
+            user={user} 
           />} />
           <Route path="/loginsignup" element={<LoginSignUpPage user={user} setUser={setUser} />} />
           <Route path="/cart" element={<Cart 
