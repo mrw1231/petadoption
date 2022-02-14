@@ -14,7 +14,7 @@ Furry Friend Finder is here to help you find your new best four legged friend! Y
 
 ## Getting Started
 
-[Deployed App](https://www.example.com)
+[Deployed App](https://petadoption1231.herokuapp.com/)
 
 [Trello Board](https://trello.com/b/12KvRqpM/pet-adoption)
 
