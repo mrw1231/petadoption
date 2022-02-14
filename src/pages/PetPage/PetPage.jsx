@@ -1,4 +1,5 @@
 import React from "react";
+import "./PetPage.css";
 import { useState, useEffect, useRef } from 'react';
 import * as itemsAPI from '../../utilities/items-api';
 import CategoryList from '../../components/CategoryList/CategoryList';
@@ -21,8 +22,9 @@ function PetPage({ user, handleAddToOrder }) {
         getItems();
     }, []);
     return (
-        <div>
-            <h1>Pets</h1>
+        <div className="PetPage">
+            <h1>Available Friends</h1>
+            <p>Bellow are our current guests wating to meet their person. Sign up to reserve a meet and greet!</p>
             <CategoryList
                 categories={categoriesRef.current}
                 activeCat={activeCat}

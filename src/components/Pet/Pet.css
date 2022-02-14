@@ -1,7 +1,28 @@
-/* .Pet {
+.Pet {
     text-align: center;
-} */
+    display: grid;
+    display: inline-grid;
+    margin: 5px;
+}
 
 .Pet img {
-    width: 75px;
+    width: 150px;
+}
+
+.PetPrice {
+    font-size: smaller;
+    color: orange;
+    margin: 5px;
+}
+
+.Pet button {
+    background-color: rgb(212, 108, 43);
+    color: white;
+    /* padding: 15px 32px; */
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 14px;
+    /* margin: 15px; */
+    border-radius: 1px;
 }

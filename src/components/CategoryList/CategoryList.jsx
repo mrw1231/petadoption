@@ -8,13 +8,12 @@ export default function CategoryList({ categories, activeCat, setActiveCat }) {
       className={cat === activeCat ? 'active' : ''}
       onClick={() => setActiveCat(cat)}
     >
-      {cat}
+    {cat}
     </button>
   );
   return (
     <div className="CategoryList">
       {cats}
-      &nbsp;
     </div>
   );
 }

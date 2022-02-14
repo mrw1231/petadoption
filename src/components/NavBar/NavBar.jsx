@@ -14,12 +14,12 @@ function NavBar({ user, setUser }) {
         <nav className="NavBar">
             <Link to="/" className="Link">Home</Link>
             &nbsp; | &nbsp;
-            <Link to="/pets" className="Link">Pets</Link>
+            <Link to="/pets" className="Link">Future Friends</Link>
             &nbsp; | &nbsp;
             {
                 user ?
                 <>
-                <Link to="/cart" className="Link">Cart</Link>
+                <Link to="/cart" className="Link">Reservations</Link>
                 &nbsp; | &nbsp;
                 <Link to="" className="Link" onClick={handleLogOut}>Log Out</Link>
                 </>

@@ -1,4 +1,5 @@
 import React from "react";
+import "./PetList.css";
 import Pet from "../Pet/Pet";
 
 export default function PetList({ user, pets, handleAddToOrder }) {
@@ -11,8 +12,10 @@ export default function PetList({ user, pets, handleAddToOrder }) {
       />
     );
     return (
-      <main>
-        {animals}
+      <main className="PetList">
+        <div>
+          {animals}
+        </div>
       </main>
     );
   }
