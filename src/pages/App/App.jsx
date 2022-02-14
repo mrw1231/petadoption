@@ -14,6 +14,7 @@ import Cart from "../Cart/Cart";
 import Logo from "../../components/Logo/Logo";
 import AdminPage from "../AdminPage/Admin";
 import AddPetPage from "../AddPetPage/AddPetPage";
+import PastOrders from "../PastOrders/PastOrders";
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -31,6 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/addpet" element={<AddPetPage />} />
+        <Route path="/pastorders" element={<PastOrders />} />
         <Route path="/pets" element={<PetPage
           handleAddToOrder={handleAddToOrder}
           user={user} 

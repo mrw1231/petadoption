@@ -6,6 +6,8 @@ function AdminPage() {
         <div>
             <h1>AdminPage</h1>
             <Link to="/addpet">ADD A PET</Link>
+            <br></br>
+            <Link to="/pastorders">Past Reservations</Link>
         </div>
     )
 }
