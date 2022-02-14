@@ -1,15 +1,30 @@
-# MERN-Stack Infrastructure
+![screenshot](https://i.imgur.com/dIW0ebX.png)
 
-Clone this repo to provide the starter code for a comprehensive MERN-Stack project including token-based authentication.
+# Furry Friend Finder
 
-## Using mern-infrastructure to Create MERN-Stack Projects in the Future
+Furry Friend Finder is here to help you find your new best four legged friend! You are able to see available pets. If one peaks your interest, you can sign up and reserve to meet the pet.
 
-Here's the process to create a new MERN-Stack project that starts with the infrastructure code:
+## Technologies Used
 
-1. Clone the mern-infrastructure repo.
-2. Rename the newly mern-infrastructure folder to the name of your new project.
-3. Optionally, update the `"name": "mern-infrastructure"` in package.json.
-4. Create a new repo on your personal GH account.
-5. Copy the GH repo's URL.
-6. Update the remote's URL: `git remote set-url origin <paste the copied url>`
-7. Push for the first time: `git push -u origin main`
+- MongooseDB
+- Express
+- React
+- Node.js
+- CSS
+
+## Getting Started
+
+[Deployed App](https://www.example.com)
+
+[Trello Board](https://trello.com/b/12KvRqpM/pet-adoption)
+
+## Next Steps
+
+I would like to add the following:
+- A user to be able to "favorite" a pet
+- A user to be able to update their own information
+- Donations
+- As an admin, be able to add new pets
+- Use AWS or similiar to upload and host new photos
+- Stripe API
+- Higher level CSS

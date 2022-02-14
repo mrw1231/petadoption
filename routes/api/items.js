@@ -7,6 +7,6 @@ router.get('/', itemsCtrl.index);
 // GET /api/items/:id
 router.get('/:id', itemsCtrl.show);
 // POST /api/items/new
-router.get('/create', itemsCtrl.create);
+router.post('/create', itemsCtrl.create);
 
 module.exports = router;

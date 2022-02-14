@@ -1,4 +1,6 @@
 const Item = require('../../models/item');
+const mongoose = require('mongoose');
+const db = mongoose.connection;
 
 module.exports = {
   index,
@@ -8,6 +10,10 @@ module.exports = {
 
 async function create(req, res) {
   console.log(req.body);
+  db.collection('pet-adoption').insertOne(req.body, (err, data) => {
+    if(err) return console.log(err);
+    res.send(('saved to db: ' + data));
+  });
 }
 
 async function index(req, res) {
