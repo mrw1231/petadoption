@@ -9,3 +9,7 @@ export function getAll() {
 export function getById(id) {
   return sendRequest(`${BASE_URL}/${id}`);
 }
+
+export async function createItem(newPet) {
+  return sendRequest(`${BASE_URL}/create`, 'POST', newPet);
+}

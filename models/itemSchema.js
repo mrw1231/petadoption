@@ -4,7 +4,7 @@ const itemSchema = new Schema({
   name: {type: String, required: true},
   category: {type: Schema.Types.ObjectId, ref:'Category'},
   price: {type: Number, required: true, default: 0},
-  image: {type: String, default: 'https://i.imgur.com/gxcuYgd.jpg'},
+  image: {type: String, default: 'https://i.imgur.com/8qc1fcT.jpg'},
 }, {
   timestamps: true
 });

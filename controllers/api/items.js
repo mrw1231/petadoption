@@ -2,8 +2,13 @@ const Item = require('../../models/item');
 
 module.exports = {
   index,
-  show
+  show,
+  create,
 };
+
+async function create(req, res) {
+  console.log(req.body);
+}
 
 async function index(req, res) {
   const items = await Item.find({}).sort('name').populate('category').exec();
