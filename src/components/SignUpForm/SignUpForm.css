@@ -1,6 +1,7 @@
-.SignUpForm input {
-    width: 98%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
+.SignUpForm label {
+    margin: 5px;
+}
+
+.SignUpForm button {
+    margin: 5px;
 }

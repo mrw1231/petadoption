@@ -26,6 +26,18 @@ function NavBar({ user, setUser }) {
                 :
                 <Link to="/loginsignup" className="Link">Login / Sign Up</Link>
             }
+            {
+                user === null ?
+                    <></>
+                    :
+                    user.admin === true ?
+                        <>
+                        &nbsp; | &nbsp;
+                        <Link to="/admin" className="Admin">ADMIN</Link>
+                        </>
+                        :
+                        <></>
+            }
         </nav>
     )
   }

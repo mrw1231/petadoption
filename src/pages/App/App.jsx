@@ -21,7 +21,7 @@ function App() {
     const cart = await ordersAPI.addItemToCart(itemId);
     setCart(cart);
   }
-
+  
   return (
     <main className="App">
       <NavBar className="NavBar" user={user} setUser={setUser} />
