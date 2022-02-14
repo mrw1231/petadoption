@@ -12,6 +12,7 @@ import PetPage from "../PetPage/PetPage";
 import LoginSignUpPage from "../LoginSignUpPage/LoginSignUpPage";
 import Cart from "../Cart/Cart";
 import Logo from "../../components/Logo/Logo";
+import AdminPage from "../AdminPage/Admin";
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -37,6 +38,7 @@ function App() {
           order={cart}
           setCart={setCart}
         />} />
+        <Route path="/admin" element={<AdminPage />} />
       </Routes>
     </main>
   );
