@@ -8,13 +8,13 @@ module.exports = {
   create,
 };
 
-async function create(req, res) {
+function create(req, res) {
   console.log(req.body);
-  db.collection('pet-adoption').insertOne(req.body, (err, data) => {
+  db.collection('items').insertOne(req.body, (err, data) => {
     if(err) return console.log(err);
     res.send(('saved to db: ' + data));
-  });
-}
+  })
+};
 
 async function index(req, res) {
   const items = await Item.find({}).sort('name').populate('category').exec();

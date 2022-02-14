@@ -16,14 +16,10 @@ export default function AddPetForm() {
     setError('');
   }
 
-  async function handleSubmit(evt) {
-    // Prevent form from being submitted to the server
+  function handleSubmit(evt) {
     evt.preventDefault();
     try {
-      // The promise returned by the signUp service method 
-      // will resolve to the user object included in the
-      // payload of the JSON Web Token (JWT)
-      const newPet = await itemAPI.createItem(credentials);
+      const newPet = itemAPI.createItem(credentials);
       console.log('new pet', newPet);
       console.log('credentials', credentials);
     } catch {
@@ -32,7 +28,7 @@ export default function AddPetForm() {
   }
   return (
     <div>
-      <div className="SignUpForm">
+      <div>
         <form autoComplete="off" onClick={handleSubmit}>
           <label>Name</label>
           <br></br>
