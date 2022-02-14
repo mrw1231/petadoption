@@ -5,9 +5,9 @@ import "./LineItem.css";
 export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
   return (
     <div className="LineItem">
-      <div>{lineItem.item.name}</div>
+      <h3>{lineItem.item.name}</h3>
       <img src={lineItem.item.image} alt="pet"></img>
-      <div>${lineItem.extPrice.toFixed(2)}</div>
+      <div className="LineItemPrice">${lineItem.extPrice.toFixed(2)}</div>
       <button
         onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)}
       >Remove</button>

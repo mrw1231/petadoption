@@ -1,4 +1,5 @@
 import React from "react";
+import "./Cart.css";
 import * as ordersAPI from '../../utilities/orders-api';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -38,26 +39,25 @@ export default function Cart({ order, setCart }) {
     );
     
     return (
-        <div className="OrderDetail">
+        <div className="Cart">
             <h1>Reservations</h1>
             <div>
                 {lineItems.length ?
                     <>
                         {lineItems}
-                        <section>
-                            <span>Total Items {order.totalQty}</span>
-                            <br></br>
-                            <span className="right">Amount Owed ${order.orderTotal.toFixed(2)}</span>
-                            <br></br>
-                            <button
-                                className="btn-sm"
-                                onClick={handleCheckout}
-                                disabled={!lineItems.length}
-                            >CHECKOUT</button>
-                        </section>
+                        <div>Total For Reservation: ${order.orderTotal.toFixed(2)}</div>
+                        <button
+                            className="btn-sm"
+                            onClick={handleCheckout}
+                            disabled={!lineItems.length}
+                        >Finalize Reservation</button>
                     </>
                     :
-                    <Link to="/pets">Find Your New Friend Here!</Link>
+                    <>
+                    <h3>No pending reservations...</h3>
+                    <br></br>
+                    <Link to="/pets" className="FindPet">Find Your New Friend Here!</Link>
+                    </>
                 }
             </div>
         </div>
