@@ -2,7 +2,12 @@ import React from "react";
 
 function HomePage() {
     return (
-        <h1>HomePage</h1>
+        <div>
+            <h1>Welcome!</h1>
+            <p>
+                Do you ever feel lonely? Tired of dealing with conditional love? Look no further! We are here to match you with your new best friend! 
+            </p>
+        </div>
     )
 }
 

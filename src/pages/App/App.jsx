@@ -24,20 +24,20 @@ function App() {
 
   return (
     <main className="App">
-      <Logo />
-        <NavBar user={user} setUser={setUser} />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/pets" element={<PetPage
-            handleAddToOrder={handleAddToOrder}
-            user={user} 
-          />} />
-          <Route path="/loginsignup" element={<LoginSignUpPage user={user} setUser={setUser} />} />
-          <Route path="/cart" element={<Cart 
-            order={cart}
-            setCart={setCart}
-          />} />
-        </Routes>
+      <NavBar className="NavBar" user={user} setUser={setUser} />
+      <Logo className="Logo" />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/pets" element={<PetPage
+          handleAddToOrder={handleAddToOrder}
+          user={user} 
+        />} />
+        <Route path="/loginsignup" element={<LoginSignUpPage user={user} setUser={setUser} />} />
+        <Route path="/cart" element={<Cart 
+          order={cart}
+          setCart={setCart}
+        />} />
+      </Routes>
     </main>
   );
 }

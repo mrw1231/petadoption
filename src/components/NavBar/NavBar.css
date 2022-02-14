@@ -3,5 +3,8 @@
 }
 
 .Link {
-    color: orange;
+    color: white;
+    text-decoration: none;
+    font-family: 'Bebas Neue';
+    font-size: larger;
 }
