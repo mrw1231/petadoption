@@ -13,6 +13,7 @@ import LoginSignUpPage from "../LoginSignUpPage/LoginSignUpPage";
 import Cart from "../Cart/Cart";
 import Logo from "../../components/Logo/Logo";
 import AdminPage from "../AdminPage/Admin";
+import AddPetPage from "../AddPetPage/AddPetPage";
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -29,6 +30,7 @@ function App() {
       <Logo className="Logo" />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/addpet" element={<AddPetPage />} />
         <Route path="/pets" element={<PetPage
           handleAddToOrder={handleAddToOrder}
           user={user} 
